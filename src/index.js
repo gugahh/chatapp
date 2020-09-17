@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import CommentDetail from './CommentDetail';
 
 const App = () => {
 
@@ -8,24 +9,42 @@ const App = () => {
 
 	return (
 		<div className="ui container comments">
-            <div className="comment">
-                <a href="/" className="avatar" style={{marginRight: '5px'}}>
-                    <img src={faker.image.avatar()} alt="avatar" style={{width: 35, height: 35}} />
-                </a>
-            </div>
-            <div className="comment">
-                <a href="/" className="author">
-                    {faker.name.firstName() + ' ' + faker.name.lastName()}
-                </a>
-                <div className="metadata">
-                    <span className="date">{faker.date.recent().toLocaleString()}</span>
-                </div>
-            </div>
-            <div className="text">
-                {faker.hacker.phrase()}
-            </div>
+            <CommentDetail 
+                author={getFakeName()}
+                avatar={getFakeAvatar()}
+                date={getFakeDateAsString()}
+                phrase={getFakePhrase()}
+                />
+            <CommentDetail 
+                author={getFakeName()}
+                avatar={getFakeAvatar()}
+                date={getFakeDateAsString()}
+                phrase={getFakePhrase()}
+                />
+            <CommentDetail 
+                author={getFakeName()}
+                avatar={getFakeAvatar()}
+                date={getFakeDateAsString()}
+                phrase={getFakePhrase()}
+                />        
         </div>
 	);
 };
+
+function getFakeName() {
+    return faker.name.firstName() + ' ' + faker.name.lastName();
+}
+
+function getFakeAvatar() {
+    return faker.image.avatar();
+}
+
+function getFakeDateAsString() {
+    return faker.date.recent().toLocaleString();
+}
+
+function getFakePhrase() {
+    return faker.hacker.phrase();
+}
 
 ReactDOM.render( <App />, document.querySelector('#root'));
