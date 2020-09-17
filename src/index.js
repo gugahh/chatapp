@@ -9,13 +9,13 @@ const App = () => {
 	return (
 		<div className="ui container comments">
             <div className="comment">
-                <a href="/" className="avatar">
-                    <img src={faker.image.avatar()} alt="avatar" />
+                <a href="/" className="avatar" style={{marginRight: '5px'}}>
+                    <img src={faker.image.avatar()} alt="avatar" style={{width: 35, height: 35}} />
                 </a>
             </div>
             <div className="comment">
                 <a href="/" className="author">
-                    {faker.name.firstName()} {faker.name.lastName()}
+                    {faker.name.firstName() + ' ' + faker.name.lastName()}
                 </a>
                 <div className="metadata">
                     <span className="date">{faker.date.recent().toLocaleString()}</span>
