@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    const pessoaIcon = "https://icon-icons.com/icons2/806/PNG/48/chat-53_icon-icons.com_65955.png";
+
+	return (
+		<div className="ui container comments">
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img src={pessoaIcon} alt="avatar" />
+                </a>
+            </div>
+            <div className="comment">
+                <a href="/" className="author">
+                    Sissy Spacek
+                </a>
+                <div className="metadata">
+                    <span className="date">Today at 6PM</span>
+                </div>
+            </div>
+            <div className="text">
+                I like it very much. Keep up the good work!
+            </div>
+        </div>
+	);
+};
+
+ReactDOM.render( <App />, document.querySelector('#root'));
